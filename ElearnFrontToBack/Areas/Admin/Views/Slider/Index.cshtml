@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Slider>
+
+@{
+    ViewData["Title"] = "Slider";
+}
+
+
+<div class="container my-5">
+    <h4 class="card-title">Slider</h4>
+    <a type="button " asp-action="Create" style="float:right" class="btn btn-success text-white">
+        Create
+    </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Status</th>
+                <th scope="col">Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var slider in Model)
+            {
+
+                <tr>
+
+                    <td class="py-1">
+                        <img src="~/images/@slider.Image" style="width:70px; height:70px; border-radius:50%" alt="image">
+                    </td>
+
+                    <td>
+                        @if (slider.SoftDelete)
+                        {
+                            <div class="deActive"></div>
+                        }else{
+                            <div class="active-status"></div>
+                        }
+                    </td>
+
+                    <td>
+                        <a class="btn btn-outline-info" asp-action="Detail" asp-route-id="@slider.Id">
+                            Info
+                        </a>
+
+                        <a class="btn btn-outline-primary">
+                            Edit
+                        </a>
+
+                        <a class="btn btn-outline-danger">
+                            Delete
+                        </a>
+
+                    </td>
+
+
+
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+
+</div>
+
+

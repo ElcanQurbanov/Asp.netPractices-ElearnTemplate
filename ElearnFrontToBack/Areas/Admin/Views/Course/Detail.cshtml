@@ -1,0 +1,16 @@
+﻿@model Course
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container my-5">
+    <h1>Course detail</h1>
+    <div class="slider-content">
+        <img style="width:400px; height:200px;" src="~/images/@Model.courseImages.FirstOrDefault().Image" />
+    </div>
+    <a class="btn btn-info mt-3" asp-action="Index">
+        Back
+    </a>
+</div>
+
